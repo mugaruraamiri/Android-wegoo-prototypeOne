@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".DeviceListActivity"
+    android:background="@color/activityBackground">
+
+    <!-- upper part SP2 Temperature and Oxygen -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="310dp"
+            android:background="@color/uperBackColor"
+            android:elevation="1dp"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/customPadding"
+            android:paddingRight="@dimen/customPadding"
+            android:paddingBottom="@dimen/customPadding"
+            android:paddingTop="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:id="@+id/oxygenvalue"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:background="@drawable/oval_red"
+                    android:textColor="#FFFFFF"
+                    android:textSize="47sp"
+                    android:layout_centerInParent="true"
+                    android:text="0%"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/psvalue"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50bpm"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:textSize="27sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/heartSp"-->
+                    <!--android:layout_width="40dp"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--android:layout_toLeftOf="@+id/psvalue"-->
+                    <!--android:layout_marginTop="12dp"-->
+                    <!--android:src="@drawable/animated_heart"/>-->
+
+
+                <TextView
+                    android:id="@+id/pulseText"
+                    android:layout_below="@+id/psvalue"
+                    android:gravity="end"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pulsiometer"/>
+
+                <TextView
+                    android:id="@+id/tempvalue"
+                    android:layout_below="@+id/pulseText"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30C"
+                    android:gravity="end"
+                    android:textSize="27sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:id="@+id/tempText"
+                    android:layout_below="@+id/tempvalue"
+                    android:gravity="end"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-thin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Temperature"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <!-- Down part ECG graph -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginTop="10dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:id="@+id/card_view"
+                android:layout_gravity="center"
+                card_view:cardCornerRadius="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="19 Nov 2015 6:00 PM"/>
+
+                <com.jjoe64.graphview.GraphView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dip"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/graph" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"/>
+
+
+</FrameLayout>
